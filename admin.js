@@ -84,6 +84,7 @@ document.getElementById('resultForm').addEventListener('submit', function(e) {
 });
 
 // Display all results
+
 function displayAllResults() {
     const resultsDiv = document.getElementById('allResults');
     let results = [];
@@ -101,14 +102,18 @@ function displayAllResults() {
         return;
     }
 
-    let html = '<table class="result-table"><tr><th>Roll No</th><th>Name</th><th>Total Marks</th><th>Percentage</th></tr>';
-    results.forEach(result => {
+    let html = '<table class="result-table"><tr><th>Roll No</th><th>Name</th><th>Total Marks</th><th>Percentage</th><th>Actions</th></tr>';
+    results.forEach((result, index) => {
         html += `
             <tr>
                 <td>${result.rollNo}</td>
                 <td>${result.name}</td>
                 <td>${result.totalObtainedMarks}/${result.totalMaxMarks}</td>
                 <td>${result.percentage}%</td>
+                <td>
+                    <button onclick="editResult(${index})">Edit</button>
+                    <button onclick="deleteResult(${index})">Delete</button>
+                </td>
             </tr>
         `;
     });
@@ -116,5 +121,44 @@ function displayAllResults() {
     resultsDiv.innerHTML = html;
 }
 
-// Initial load of results
-displayAllResults();
+// Add these new functions
+function deleteResult(index) {
+    if (confirm('Are you sure you want to delete this result?')) {
+        let results = JSON.parse(localStorage.getItem('results') || '[]');
+        results.splice(index, 1);
+        localStorage.setItem('results', JSON.stringify(results));
+        displayAllResults();
+    }
+}
+
+function editResult(index) {
+    let results = JSON.parse(localStorage.getItem('results') || '[]');
+    const result = results[index];
+    
+    // Fill the form with existing data
+    document.getElementById('rollNo').value = result.rollNo;
+    document.getElementById('name').value = result.name;
+    
+    // Clear existing subject entries
+    document.getElementById('subjectsContainer').innerHTML = '';
+    
+    // Add subject entries with existing data
+    result.subjects.forEach(subject => {
+        const subjectHTML = `
+            <div class="subject-entry">
+                <input type="text" class="subjectName" value="${subject.subjectName}" required>
+                <input type="number" class="obtainedMarks" value="${subject.obtainedMarks}" required>
+                <input type="number" class="totalMarks" value="${subject.totalMarks}" required>
+                <button type="button" class="removeSubject">Remove</button>
+            </div>
+        `;
+        document.getElementById('subjectsContainer').insertAdjacentHTML('beforeend', subjectHTML);
+    });
+    
+    // Remove the old result
+    results.splice(index, 1);
+    localStorage.setItem('results', JSON.stringify(results));
+    
+    // Scroll to form
+    document.getElementById('resultForm').scrollIntoView();
+}
