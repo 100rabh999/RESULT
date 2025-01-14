@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - Result Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Admin Panel</h1>
+            <a href="index.html" class="nav-link">Go to Result Page</a>
+        </div>
+        <div class="admin-section">
+            <h2>Add New Result</h2>
+            <form id="resultForm">
+                <input type="text" id="rollNo" placeholder="Roll Number" required>
+                <input type="text" id="name" placeholder="Student Name" required>
+                
+                <div id="subjectsContainer">
+                    <div class="subject-entry">
+                        <input type="text" class="subjectName" placeholder="Subject Name" required>
+                        <input type="number" class="obtainedMarks" placeholder="Obtained Marks" required>
+                        <input type="number" class="totalMarks" placeholder="Total Marks" required>
+                        <button type="button" class="removeSubject">Remove</button>
+                    </div>
+                </div>
+                
+                <button type="button" id="addSubject">Add Another Subject</button>
+                <button type="submit">Save Result</button>
+            </form>
+        </div>
+        
+        <div class="results-list">
+            <h2>All Results</h2>
+            <div id="allResults"></div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

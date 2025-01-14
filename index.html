@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Student Result Portal</h1>
+            <a href="admin.html" class="nav-link">Admin Login</a>
+        </div>
+        <div class="student-section">
+            <h2>Check Your Result</h2>
+            <div class="search-box">
+                <input type="text" id="searchRoll" placeholder="Enter Roll Number">
+                <button onclick="checkResult()">Search Result</button>
+            </div>
+            <div id="resultDisplay"></div>
+        </div>
+    </div>
+    <script src="result.js"></script>
+</body>
+</html>
