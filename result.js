@@ -3,7 +3,7 @@ function checkResult() {
     const resultDisplay = document.getElementById('resultDisplay');
     
     // GitHub raw content URL का उपयोग करें
-    const jsonURL = 'https://raw.githubusercontent.com/100rabh999/RESULT/master/results.json';
+    const jsonURL = 'https://github.com/100rabh999/RESULT/blob/master/results.json';
     
     fetch(jsonURL)
         .then(response => {
