@@ -1,18 +1,12 @@
 function checkResult() {
     const searchRoll = document.getElementById('searchRoll').value;
     const resultDisplay = document.getElementById('resultDisplay');
-    
-    let results = [];
-    try {
-        const existingResults = localStorage.getItem('results');
-        if (existingResults) {
-            results = JSON.parse(existingResults);
-        }
-    } catch (e) {
-        console.error('Error loading results');
-    }
 
-    const result = results.find(r => r.rollNo === searchRoll);
+        fetch('results.json')
+            .then(response => response.json())
+            .catch(() => [])
+            .then(results => {
+                const result = results.find(r => r.rollNo === searchRoll);
     
     if (result) {
         resultDisplay.style.display = 'block';
@@ -53,4 +47,5 @@ function checkResult() {
         resultDisplay.style.display = 'block';
         resultDisplay.innerHTML = '<p>No result found for this roll number.</p>';
     }
+});
 }

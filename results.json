@@ -1,0 +1,36 @@
+[
+    {
+      "rollNo": "WAVE01",
+      "name": "NAVIN YADAV",
+      "subjects": [
+        {
+          "subjectName": "PHYSICS",
+          "obtainedMarks": 32,
+          "totalMarks": 70
+        },
+        {
+          "subjectName": "CHEMISTRY",
+          "obtainedMarks": 35,
+          "totalMarks": 70
+        },
+        {
+          "subjectName": "BIOLOGY",
+          "obtainedMarks": 42,
+          "totalMarks": 70
+        },
+        {
+          "subjectName": "ENGLISH",
+          "obtainedMarks": 40,
+          "totalMarks": 80
+        },
+        {
+          "subjectName": "HINDI",
+          "obtainedMarks": 45,
+          "totalMarks": 80
+        }
+      ],
+      "totalObtainedMarks": 194,
+      "totalMaxMarks": 370,
+      "percentage": "52.43"
+    }
+  ]
