@@ -2,11 +2,9 @@ function checkResult() {
     const searchRoll = document.getElementById('searchRoll').value;
     const resultDisplay = document.getElementById('resultDisplay');
     
-    // GitHub raw content URL का उपयोग करें
-    const jsonURL = 'https://github.com/100rabh999/RESULT/blob/master/results.json';
-    
-    fetch(jsonURL)
-        .then(response => {
+    fetch('https://raw.githubusercontent.com/100rabh999/RESULT/master/results.json')
+  .then(response => {
+
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
