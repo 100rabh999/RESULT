@@ -1,16 +1,30 @@
 [
     {
       "rollNo": "WAVE01",
+      "name": "VISWA CHAVAN",
+      "subjects": [
+        {
+          "subjectName": "MATHS",
+          "obtainedMarks": 19,
+          "totalMarks": 20
+        }
+      ],
+      "totalObtainedMarks": 19,
+      "totalMaxMarks": 20,
+      "percentage": "95.00"
+    },
+    {
+      "rollNo": "WAVE01",
       "name": "NAVIN YADAV",
       "subjects": [
         {
           "subjectName": "PHYSICS",
-          "obtainedMarks": 32,
+          "obtainedMarks": 39,
           "totalMarks": 70
         },
         {
           "subjectName": "CHEMISTRY",
-          "obtainedMarks": 35,
+          "obtainedMarks": 39,
           "totalMarks": 70
         },
         {
@@ -29,8 +43,8 @@
           "totalMarks": 80
         }
       ],
-      "totalObtainedMarks": 194,
+      "totalObtainedMarks": 205,
       "totalMaxMarks": 370,
-      "percentage": "52.43"
+      "percentage": "55.41"
     }
   ]
